@@ -221,8 +221,8 @@
             <input type="text" class="form-control" id="buildingName" placeholder="e.g. Riverside Office Tower" required>
           </div>
           <div class="col-md-6">
-            <label class="form-label">Manager email (for report delivery)</label>
-            <input type="email" class="form-control" id="managerEmail" placeholder="you@company.com">
+            <label class="form-label">Email (for report delivery)</label>
+            <input type="email" class="form-control" id="youremail" placeholder="your_name@gmail.com">
           </div>
           <div class="col-md-6">
             <label class="form-label">Address</label>
@@ -347,7 +347,7 @@
       <div class="ep-card-body d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
         <div>
           <h5 class="mb-1"><i class="bi bi-envelope"></i> Email this report</h5>
-          <p class="text-muted small mb-0">Sends the audit summary to the manager email above via the Laravel API.</p>
+          <p class="text-muted small mb-0">Sends the audit summary to the users email above via the Laravel API.</p>
         </div>
         <button type="button" class="btn btn-ep-primary" id="emailReportBtn">
           <i class="bi bi-send"></i> Send report
@@ -637,8 +637,8 @@ document.getElementById('auditForm').addEventListener('submit', (e) => {
 
 // -------------------- Email report (calls Laravel API) --------------------
 document.getElementById('emailReportBtn').addEventListener('click', async () => {
-  const email = document.getElementById('managerEmail').value;
-  if (!email) { alert('Add a manager email above first.'); return; }
+  const email = document.getElementById('youremail').value;
+  if (!email) { alert('Add an email above first.'); return; }
   if (!lastResult) { alert('Run the audit first.'); return; }
 
   const payload = {
